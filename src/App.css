@@ -1,1 +1,13 @@
+.App-header {}
+
+.App-main {}
+
+.App-footer {}
+
+.box {
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid black;
+  margin: 1rem;
+}
 
