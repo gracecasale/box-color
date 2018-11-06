@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import { CirclePicker } from 'react-color'; 
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boxColor: 'white',
-      selectedColor: '#ffff00'
+      selectedColor: 'white'
     };
     this.onColorSelect = this.onColorSelect.bind(this);
-    this.changeBackground = this.onColorSelect.bind(this);
   }
 
   onColorSelect(color, event) {
@@ -18,14 +17,9 @@ class App extends Component {
     });
   }
 
-  changeBackground(event) {
-    this.setState({
-      boxColor: this.state.selectedColor
-    });
-  }
   render() {
     const boxStyles = {
-      backgroundColor: this.state.boxColor
+      backgroundColor: this.state.selectedColor
     }
     return (
       <div className="App">
@@ -33,7 +27,8 @@ class App extends Component {
           <h1 className="title">Box Color</h1>
         </header>
         <main className="App-main">
-          <div className="box" onClick={this.changeBackground} style={boxStyles}></div>
+          <div className="box" style={boxStyles}></div>
+          <CirclePicker onChange={this.onColorSelect} color={this.state.selectedColor}/>
         </main>
         <footer className="App-footer">
           <p>Made by Grace Casale</p>
